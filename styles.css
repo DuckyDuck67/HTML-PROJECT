@@ -1,0 +1,335 @@
+:root {
+  --ink: #1f2933;
+  --line: #2a3340;
+  --muted: #5f6c78;
+  --panel: #e8ecef;
+  --green: #1FA34A;
+  --yellow: #F7C948;
+  --red: #D64545;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background: #f5f6f8;
+}
+
+.toolbar {
+  width: min(8.5in, 100%);
+  margin: 0.4rem auto 0.2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.toolbar button {
+  border: 1px solid #4a5565;
+  background: #fff;
+  color: #17212b;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sheet {
+  width: 8.5in;
+  min-height: 11in;
+  margin: 0 auto 0.25rem;
+  background: #fff;
+  padding: 0.15in;
+}
+
+.outer-box,
+.section-box {
+  border: 2px solid var(--line);
+  background: #fff;
+}
+
+.report-header {
+  padding: 0.07in 0.1in 0.08in;
+}
+
+.report-header h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 0.18in;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.title-rule {
+  margin: 0.05in 0 0.06in;
+  border-top: 2px solid var(--line);
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.05in 0.08in;
+}
+
+.field {
+  display: grid;
+  gap: 0.02in;
+}
+
+.field span {
+  font-size: 0.1in;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.field input {
+  border: none;
+  border-bottom: 1px solid var(--line);
+  height: 0.2in;
+  font-size: 0.105in;
+  padding: 0 1px;
+}
+
+.body-grid {
+  margin-top: 0.06in;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 0.08in;
+}
+
+.column {
+  display: grid;
+  gap: 0.055in;
+}
+
+.section-box {
+  padding: 0.05in 0.06in;
+  break-inside: avoid;
+}
+
+.section-title {
+  margin: 0 0 0.035in;
+  border: 1px solid #a9b0b7;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='32' viewBox='0 0 120 32'%3E%3Cg fill='%2317282f' fill-opacity='0.08' stroke='%2317282f' stroke-opacity='0.08' stroke-width='0.8'%3E%3Ccircle cx='18' cy='12' r='5'/%3E%3Cline x1='18' y1='2.5' x2='18' y2='0.5'/%3E%3Cline x1='18' y1='21.5' x2='18' y2='23.5'/%3E%3Cline x1='8.5' y1='12' x2='6.5' y2='12'/%3E%3Cline x1='27.5' y1='12' x2='29.5' y2='12'/%3E%3Cline x1='11.2' y1='5.2' x2='9.7' y2='3.7'/%3E%3Cline x1='24.8' y1='18.8' x2='26.3' y2='20.3'/%3E%3Cline x1='24.8' y1='5.2' x2='26.3' y2='3.7'/%3E%3Cline x1='11.2' y1='18.8' x2='9.7' y2='20.3'/%3E%3Cpath d='M15.2 13.2c1.8 1.6 3.8 1.6 5.6 0' fill='none'/%3E%3Cpath d='M88 27.5V14.2'/%3E%3Cpath d='M88 14.2c4.2 0 7.8 1.9 10.5 5.1-3.8-.6-7.1 1-9.4 3.8' fill='%2317282f' fill-opacity='0.08'/%3E%3Cpath d='M88 18.2c-3.9 0-7.1 1.5-9.4 4.4 4.2-.7 6.8.9 9.4 3.7' fill='%2317282f' fill-opacity='0.08'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(90deg, #BFE9FF 0%, #FFE0B5 55%, #FFB7C5 100%);
+  background-repeat: repeat, no-repeat;
+  background-size: 120px 32px, 100% 100%;
+  font-size: 0.1in;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-variant: small-caps;
+  padding: 0.03in 0.04in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+}
+
+.section-title small {
+  font-size: 0.088in;
+  letter-spacing: 0.03em;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 0.06in;
+  border-bottom: 1px solid #cad1d8;
+  padding: 0.03in 0;
+  font-size: 0.098in;
+  font-weight: 600;
+}
+
+.legend-row:last-child {
+  border-bottom: none;
+}
+
+.swatch {
+  width: 0.13in;
+  height: 0.13in;
+  border: 1px solid var(--line);
+  display: inline-block;
+}
+
+.green { background: var(--green); }
+.yellow { background: var(--yellow); }
+.red { background: var(--red); }
+
+.checklist {
+  display: grid;
+  gap: 0.015in;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 12px 1fr 0.62in;
+  align-items: center;
+  column-gap: 0.02in;
+}
+
+.mark-stack {
+  width: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 1px 0;
+}
+
+.mark-stack i {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #212936;
+  display: block;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.item-text {
+  font-size: 0.094in;
+  line-height: 1.2;
+}
+
+.notes-line {
+  height: 0.12in;
+  border-bottom: 1px solid #8f99a4;
+}
+
+.section-note {
+  margin: 0.03in 0 0;
+  font-size: 0.086in;
+  color: #33414f;
+  font-style: italic;
+}
+
+.compact .item-text {
+  font-size: 0.092in;
+}
+
+.measurement .quad-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.48in 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.04in;
+  align-items: stretch;
+}
+
+.quad {
+  border: 1px solid var(--line);
+  padding: 0.035in;
+}
+
+.quad h3 {
+  margin: 0 0 0.02in;
+  font-size: 0.09in;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.quad p {
+  margin: 0;
+  font-size: 0.078in;
+  line-height: 1.38;
+}
+
+.center-tire {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  border: 2px solid #4f5a67;
+  display: grid;
+  place-items: center;
+  font-size: 0.105in;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.damage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.04in;
+}
+
+.damage-grid h3 {
+  margin: 0 0 0.02in;
+  font-size: 0.086in;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.damage-placeholder {
+  height: 0.48in;
+  border: 1px solid var(--line);
+  background: repeating-linear-gradient(to bottom, #fff 0, #fff 7px, #f7f9fb 7px, #f7f9fb 8px);
+}
+
+.comments-box .lines {
+  display: grid;
+  gap: 0.11in;
+  margin-top: 0.03in;
+}
+
+.comments-box .lines span {
+  border-bottom: 1px solid #8f99a4;
+  height: 0.01in;
+}
+
+.summary-box {
+  margin-top: 0.06in;
+  padding-bottom: 0.05in;
+}
+
+.overall-row,
+.signature-row {
+  font-size: 0.1in;
+  margin: 0.035in 0;
+}
+
+.disclaimer {
+  margin: 0.03in 0 0;
+  font-size: 0.074in;
+  color: #475463;
+}
+
+@page {
+  size: letter;
+  margin: 0.35in;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    background: #fff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .sheet {
+    margin: 0;
+    width: auto;
+    min-height: auto;
+    padding: 0;
+  }
+
+  .section-box,
+  .report-header,
+  .item-row,
+  .quad,
+  .damage-placeholder {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
