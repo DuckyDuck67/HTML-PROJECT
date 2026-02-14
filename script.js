@@ -1,22 +1,15 @@
-const demoData = {
-  dealer: 'Summit Auto Service Center',
-  technician: 'Jordan M. Lee',
-  date: new Date().toLocaleDateString('en-US'),
-  customer: 'Alex Carter',
-  ymm: '2020 Toyota Camry SE',
-  ro: 'RO-48173',
-  mileage: '68,245',
-  vin: '4T1G11AK0LU123456',
-  plate: 'TXP-3921'
-};
+const fillDemoBtn = document.getElementById('fillDemoBtn');
+const printBtn = document.getElementById('printBtn');
 
-document.getElementById('fill-demo')?.addEventListener('click', () => {
-  document.querySelectorAll('[data-demo]').forEach((input) => {
-    const key = input.getAttribute('data-demo');
-    input.value = demoData[key] ?? '';
+function fillDemoData() {
+  document.querySelectorAll('[data-demo]').forEach((field) => {
+    if (field.matches('input, textarea')) {
+      field.value = field.dataset.demo;
+    }
   });
-});
+}
 
-document.getElementById('print-report')?.addEventListener('click', () => {
+fillDemoBtn?.addEventListener('click', fillDemoData);
+printBtn?.addEventListener('click', () => {
   window.print();
 });
