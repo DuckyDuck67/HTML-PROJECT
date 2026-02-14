@@ -1,171 +1,148 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visual Vehicle Inspection Report</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="toolbar no-print" role="toolbar" aria-label="Report actions">
-    <button type="button" id="fill-demo">Fill Demo Data</button>
-    <button type="button" id="print-report">Print / Save as PDF</button>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual Vehicle Inspection Report</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="screen-actions" aria-hidden="false">
+      <button id="fillDemoBtn" type="button">Fill Demo Data</button>
+      <button id="printBtn" type="button">Print / Save as PDF</button>
+    </div>
 
-  <main class="sheet" aria-label="Visual Vehicle Inspection Report">
-    <header class="report-header outer-box">
-      <h1>VISUAL VEHICLE INSPECTION REPORT</h1>
-      <div class="title-rule" aria-hidden="true"></div>
-      <div class="header-grid">
-        <label class="field"><span>Dealer Name</span><input data-demo="dealer" type="text" /></label>
-        <label class="field"><span>Technician</span><input data-demo="technician" type="text" /></label>
-        <label class="field"><span>Date</span><input data-demo="date" type="text" /></label>
-        <label class="field"><span>Customer Name</span><input data-demo="customer" type="text" /></label>
-        <label class="field"><span>Yr / Make / Model</span><input data-demo="ymm" type="text" /></label>
-        <label class="field"><span>RO#</span><input data-demo="ro" type="text" /></label>
-        <label class="field"><span>Mileage</span><input data-demo="mileage" type="text" /></label>
-        <label class="field"><span>VIN</span><input data-demo="vin" type="text" /></label>
-        <label class="field"><span>Tag / Plate</span><input data-demo="plate" type="text" /></label>
-      </div>
-    </header>
+    <main class="sheet" role="document" aria-label="Visual Vehicle Inspection Report">
+      <header class="report-header">
+        <h1>VISUAL VEHICLE INSPECTION REPORT</h1>
+        <div class="meta-grid">
+          <label>Dealer Name<input type="text" data-demo="Oceanfront Luxury Motors" /></label>
+          <label>Technician<input type="text" data-demo="M. Rivera" /></label>
+          <label>Date<input type="text" data-demo="04/28/2026" /></label>
+          <label>Customer Name<input type="text" data-demo="A. Whitman" /></label>
+          <label>Yr/Make/Model<input type="text" data-demo="2022 Porsche Cayenne GTS" /></label>
+          <label>RO#<input type="text" data-demo="RO-41982" /></label>
+          <label>Mileage<input type="text" data-demo="38,214" /></label>
+          <label>VIN<input type="text" data-demo="WP1AG2AY9NDA51428" /></label>
+          <label>Tag/Plate<input type="text" data-demo="FL K8X-214" /></label>
+        </div>
+      </header>
 
-    <section class="body-grid">
-      <div class="column left-col">
-        <section class="section-box legend-box">
-          <h2 class="section-title">Status Legend</h2>
-          <div class="legend-row"><span class="swatch green"></span>CHECKED AND OK</div>
-          <div class="legend-row"><span class="swatch yellow"></span>MAY NEED FUTURE ATTENTION</div>
-          <div class="legend-row"><span class="swatch red"></span>REQUIRES IMMEDIATE ATTENTION</div>
-        </section>
+      <section class="report-body">
+        <div class="column left-col">
+          <article class="inspection-section">
+            <h2>SECTION 1 – ENGINE SYSTEM (Visual + Basic Testing)</h2>
+            <ul class="checklist">
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Engine oil level / condition</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Coolant level / concentration</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Accessory belts and tension</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Visible leaks (oil / coolant / fuel)</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Air filter / intake hose integrity</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Idle quality / abnormal vibration</span></li>
+            </ul>
+          </article>
 
-        <section class="section-box">
-          <h2 class="section-title">Section 1 – Engine System <small>(Visual + Basic Testing)</small></h2>
-          <div class="checklist">
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Engine oil level &amp; condition</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Coolant level &amp; contamination check</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Brake fluid level &amp; color</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Power steering fluid (if hydraulic)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Inspect belts (cracks/glazing)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Inspect hoses (soft spots/leaks)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Check for oil leaks (pan, valve cover)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Inspect engine mounts</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Air filter condition</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack" aria-hidden="true"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Scan tool – check stored codes</span><span class="notes-line"></span></div>
-          </div>
-          <p class="section-note">✔ Works for turbo and naturally aspirated engines.</p>
-        </section>
+          <article class="inspection-section">
+            <h2>SECTION 2 – TRANSMISSION &amp; DRIVETRAIN</h2>
+            <ul class="checklist">
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Transmission fluid condition</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Shift operation smoothness</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>CV boots / axle seals</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Driveshaft joints / supports</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Transfer case / differential seepage</span></li>
+            </ul>
+          </article>
 
-        <section class="section-box">
-          <h2 class="section-title">Section 2 – Transmission &amp; Drivetrain</h2>
-          <div class="checklist compact">
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Check for transmission leaks</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Fluid condition (if accessible)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">CV axle boots (cracks/tears)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Driveshaft/U-joint play (RWD/AWD)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Transfer case leak check (AWD/4WD)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Rear/front diff leak check</span><span class="notes-line"></span></div>
-          </div>
-        </section>
+          <article class="inspection-section">
+            <h2>SECTION 3 – BRAKE SYSTEM</h2>
+            <ul class="checklist">
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Brake pad material (front / rear)</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Rotor condition / scoring</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Brake lines / hoses integrity</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Parking brake operation</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Brake fluid moisture / level</span></li>
+            </ul>
+          </article>
 
-        <section class="section-box">
-          <h2 class="section-title">Section 3 – Brake System</h2>
-          <div class="checklist compact">
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Front pad thickness visual</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Rear pad thickness visual</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Rotor surface condition</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Brake lines visible corrosion</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Parking brake function</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">ABS warning light scan</span><span class="notes-line"></span></div>
-          </div>
-          <p class="section-note">⚠ No pad removal in free inspection — visual only.</p>
-        </section>
+          <article class="inspection-section">
+            <h2>SECTION 4 – SUSPENSION &amp; STEERING</h2>
+            <ul class="checklist">
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Front / rear struts and shocks</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Control arm bushings / ball joints</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Tie rods / steering rack boots</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Power steering fluid / EPS status</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Wheel bearing noise / play</span></li>
+            </ul>
+          </article>
+        </div>
 
-        <section class="section-box">
-          <h2 class="section-title">Section 4 – Suspension &amp; Steering</h2>
-          <div class="checklist compact">
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Strut/shock leakage</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Control arm bushings</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Ball joints play (visual/feel)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Tie rod ends condition</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Steering response (road test)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Uneven tire wear</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Tread depth measurement</span><span class="notes-line"></span></div>
-          </div>
-        </section>
-      </div>
+        <div class="column right-col">
+          <article class="inspection-section">
+            <h2>INTERIOR / EXTERIOR</h2>
+            <ul class="checklist compact">
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Windshield / glass / mirrors</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Headlamps / turn lamps</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Wipers / washers</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Horn / warning indicators</span></li>
+            </ul>
+          </article>
 
-      <div class="column right-col">
-        <section class="section-box legend-box">
-          <h2 class="section-title">Status Legend</h2>
-          <div class="legend-row"><span class="swatch green"></span>CHECKED AND OK</div>
-          <div class="legend-row"><span class="swatch yellow"></span>MAY NEED FUTURE ATTENTION</div>
-          <div class="legend-row"><span class="swatch red"></span>REQUIRES IMMEDIATE ATTENTION</div>
-        </section>
+          <article class="inspection-section">
+            <h2>BATTERY / ELECTRICAL</h2>
+            <ul class="checklist compact">
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Battery CCA / state of health</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Charging system output</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Starter draw / cranking speed</span></li>
+            </ul>
+          </article>
 
-        <section class="section-box">
-          <h2 class="section-title">A) Interior / Exterior</h2>
-          <div class="checklist compact">
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Check exterior lights</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Check dash warning lights</span><span class="notes-line"></span></div>
-          </div>
-        </section>
+          <article class="inspection-section">
+            <h2>BRAKE AND TIRE GRID</h2>
+            <div class="tire-grid" aria-label="Brake and tire measurements">
+              <div class="corner tl"><strong>LF</strong><span>Brake: ____ mm</span><span>Tread: ____ / 32</span></div>
+              <div class="corner tr"><strong>RF</strong><span>Brake: ____ mm</span><span>Tread: ____ / 32</span></div>
+              <div class="corner bl"><strong>LR</strong><span>Brake: ____ mm</span><span>Tread: ____ / 32</span></div>
+              <div class="corner br"><strong>RR</strong><span>Brake: ____ mm</span><span>Tread: ____ / 32</span></div>
+              <div class="center-tire">TIRE</div>
+            </div>
+          </article>
 
-        <section class="section-box">
-          <h2 class="section-title">B) Battery / Electrical</h2>
-          <div class="checklist compact">
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Battery voltage test (12.4–12.7V off)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Charging voltage (13.5–14.8V running)</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Scan ABS / SRS modules</span><span class="notes-line"></span></div>
-          </div>
-        </section>
+          <article class="inspection-section">
+            <h2>EXHAUST &amp; UNDERBODY</h2>
+            <ul class="checklist compact">
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Exhaust leaks / hangers</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Heat shields / catalytic area</span></li>
+              <li><span class="status-stack"><i class="box green"></i><i class="box yellow"></i><i class="box red"></i></span><span>Frame / underbody corrosion</span></li>
+            </ul>
+          </article>
 
-        <section class="section-box measurement">
-          <h2 class="section-title">C) Brake and Tire Grid</h2>
-          <div class="quad-grid">
-            <div class="quad"><h3>Left Front</h3><p>Brake lining ____ mm</p><p>Tire tread ____ /32nds</p><p>Wear pattern __________</p><p>Tire pressure PSI: Before ___ After ___</p></div>
-            <div class="quad"><h3>Right Front</h3><p>Brake lining ____ mm</p><p>Tire tread ____ /32nds</p><p>Wear pattern __________</p><p>Tire pressure PSI: Before ___ After ___</p></div>
-            <div class="center-tire">TIRE</div>
-            <div class="quad"><h3>Left Rear</h3><p>Brake lining ____ mm</p><p>Tire tread ____ /32nds</p><p>Wear pattern __________</p><p>Tire pressure PSI: Before ___ After ___</p></div>
-            <div class="quad"><h3>Right Rear</h3><p>Brake lining ____ mm</p><p>Tire tread ____ /32nds</p><p>Wear pattern __________</p><p>Tire pressure PSI: Before ___ After ___</p></div>
-          </div>
-        </section>
+          <article class="inspection-section">
+            <h2>PRIOR BODY DAMAGE</h2>
+            <textarea rows="3" data-demo="Minor prior touch-up noted on right rear quarter panel. No structural concern observed."></textarea>
+          </article>
 
-        <section class="section-box">
-          <h2 class="section-title">D) Exhaust &amp; Underbody</h2>
-          <div class="checklist compact">
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Exhaust leaks</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Catalytic converter rattles</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Rust or structural concerns</span><span class="notes-line"></span></div>
-            <div class="item-row"><span class="mark-stack"><i class="green"></i><i class="yellow"></i><i class="red"></i></span><span class="item-text">Fluid leaks under vehicle</span><span class="notes-line"></span></div>
-          </div>
-        </section>
+          <article class="inspection-section">
+            <h2>COMMENTS / ESTIMATES</h2>
+            <textarea rows="4" data-demo="Recommend front brake service within 3,000 miles and align after replacing RF tire. Estimated service package: $1,245.00"></textarea>
+          </article>
+        </div>
+      </section>
 
-        <section class="section-box damage-boxes">
-          <h2 class="section-title">E) Prior Body Damage</h2>
-          <div class="damage-grid">
-            <div><h3>Front</h3><div class="damage-placeholder"></div></div>
-            <div><h3>Side</h3><div class="damage-placeholder"></div></div>
-            <div><h3>Rear</h3><div class="damage-placeholder"></div></div>
-          </div>
-        </section>
+      <footer class="report-footer">
+        <h2>FINAL VEHICLE CONDITION SUMMARY</h2>
+        <div class="condition-row">
+          <label><input type="checkbox" /> Excellent</label>
+          <label><input type="checkbox" checked /> Good</label>
+          <label><input type="checkbox" /> Needs Minor Service</label>
+          <label><input type="checkbox" /> Needs Immediate Attention</label>
+        </div>
+        <div class="signoff-row">
+          <label>Completed By:<span class="line"></span></label>
+          <label>Customer Approval:<span class="line"></span></label>
+        </div>
+      </footer>
+    </main>
 
-        <section class="section-box comments-box">
-          <h2 class="section-title">F) Comments / Estimates</h2>
-          <div class="lines" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
-        </section>
-      </div>
-    </section>
-
-    <footer class="section-box summary-box">
-      <h2 class="section-title">Final Vehicle Condition Summary</h2>
-      <div class="overall-row">☐ Excellent &nbsp;&nbsp; ☐ Good &nbsp;&nbsp; ☐ Needs Minor Service &nbsp;&nbsp; ☐ Needs Immediate Attention</div>
-      <div class="signature-row">Completed By: ____________________ &nbsp;&nbsp;&nbsp;&nbsp; Customer Approval: ____________________</div>
-      <p class="disclaimer">Inspection is visual and non-invasive; recommendations based on observed conditions.</p>
-    </footer>
-  </main>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
