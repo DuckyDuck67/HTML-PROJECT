@@ -1,15 +1,13 @@
-const fillDemoBtn = document.getElementById('fillDemoBtn');
+const demoBtn = document.getElementById('demoBtn');
 const printBtn = document.getElementById('printBtn');
 
 function fillDemoData() {
   document.querySelectorAll('[data-demo]').forEach((field) => {
-    if (field.matches('input, textarea')) {
-      field.value = field.dataset.demo;
+    if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+      field.value = field.dataset.demo || '';
     }
   });
 }
 
-fillDemoBtn?.addEventListener('click', fillDemoData);
-printBtn?.addEventListener('click', () => {
-  window.print();
-});
+demoBtn?.addEventListener('click', fillDemoData);
+printBtn?.addEventListener('click', () => window.print());

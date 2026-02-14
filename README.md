@@ -1,25 +1,21 @@
 # Visual Vehicle Inspection Report
 
-Production-grade standalone inspection form for a high-end automotive shop.
+Standalone, print-optimized, one-page vehicle inspection form.
 
 ## Files
-
-- `index.html` – complete one-page inspection form structure.
-- `styles.css` – print-optimized US Letter styling with deterministic layout.
-- `script.js` – Fill Demo Data and Print / Save as PDF actions.
+- `index.html` — report structure and all sections.
+- `styles.css` — visual design + print rules for US Letter.
+- `script.js` — demo-fill and print actions.
 
 ## Usage
-
 1. Open `index.html` in Chrome.
-2. Click **Fill Demo Data** to populate sample values.
+2. Click **Fill Demo Data** to populate example values.
 3. Click **Print / Save as PDF**.
-4. In print settings:
+4. Print settings:
    - Paper size: **US Letter**
-   - Margins: **Default browser margins are overridden by CSS @page (0.35in)**
-   - Enable **Background graphics**
+   - Background graphics: **Enabled**
 
-## Notes
-
-- Form is designed to print on a single page.
-- Buttons are hidden in print media.
-- No external frameworks or CDN dependencies are used.
+## Print design notes
+- `@page` is set to Letter with `0.35in` margins.
+- Buttons are hidden in print mode.
+- Colors are preserved with `print-color-adjust: exact`.
